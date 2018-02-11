@@ -45,8 +45,9 @@ class BooksApp extends React.Component {
     }
 
     render() {
-        const {query} = this.state
-        let results = this.state.searchResults
+        const {query} = this.state;
+        let results = this.state.searchResults;
+        results = (results && results.length >=1) ? results: [];
 
         return (
             <div className="app">
