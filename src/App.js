@@ -19,6 +19,10 @@ class BooksApp extends React.Component {
     }
 
     componentDidMount() {
+        this.displayAllBooks();
+    }
+
+    displayAllBooks() {
         BooksAPI.getAll().then((books) => {
             this.setState({books})
         })
@@ -31,12 +35,17 @@ class BooksApp extends React.Component {
         })
     }
 
-    clearQuery = () => {
-        this.setState({query: '' })
+    changeBookShelf = (book, shelf) => {
+        console.log("State of " + book.id + " changed to " + shelf);
+        BooksAPI.update(book, shelf).then((books) => {
+            if (books) {
+                this.displayAllBooks();
+            }
+        })
     }
 
     render() {
-        const { query } = this.state
+        const {query} = this.state
         let results = this.state.searchResults
 
         return (
@@ -64,17 +73,17 @@ class BooksApp extends React.Component {
                         </div>
                         <div className="search-books-results">
                             <ol className="books-grid">
-
                                 {
-
-                                    results.map((eachBook,index) => (
-                                    <li key={index} className='contact-list-item'>
-                                        <Book book={eachBook} />
-                                    </li>
-                                ))
+                                    results.map((eachBook, index) => (
+                                        <li key={index} className='contact-list-item'>
+                                            <Book
+                                                onBookShelfChange={this.changeBookShelf}
+                                                book={eachBook}
+                                            />
+                                        </li>
+                                    ))
 
                                 }
-
                             </ol>
                         </div>
                     </div>
@@ -85,10 +94,13 @@ class BooksApp extends React.Component {
                         </div>
                         <div className="list-books-content">
                             <div>
-                                <Shelf shelfTitle={"Currently Reading"} shelfName={"currentlyReading"}
+                                <Shelf onBookShelfChange={this.changeBookShelf} shelfTitle={"Currently Reading"}
+                                       shelfName={"currentlyReading"}
                                        books={this.state.books}/>
-                                <Shelf shelfTitle={"Want to Read"} shelfName={"wantToRead"} books={this.state.books}/>
-                                <Shelf shelfTitle={"Read"} shelfName={"read"} books={this.state.books}/>
+                                <Shelf onBookShelfChange={this.changeBookShelf} shelfTitle={"Want to Read"}
+                                       shelfName={"wantToRead"} books={this.state.books}/>
+                                <Shelf onBookShelfChange={this.changeBookShelf} shelfTitle={"Read"} shelfName={"read"}
+                                       books={this.state.books}/>
                             </div>
                         </div>
                         <div className="open-search">
