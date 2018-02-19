@@ -50,7 +50,7 @@ class BooksApp extends React.Component {
                        render={() => (
                            <div className="search-books">
                                <div className="search-books-bar">
-                                   <Link className="close-search"
+                                   <Link to="/" className="close-search"
                                          onClick={() => (
                                              this.setState({query: ""}, {results: ""})
                                          )}>Close</Link>
