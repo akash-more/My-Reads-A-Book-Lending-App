@@ -52,7 +52,7 @@ class BooksApp extends React.Component {
                                <div className="search-books-bar">
                                    <Link className="close-search"
                                          onClick={() => (
-                                             this.setState({query: ""})
+                                             this.setState({query: ""}, {results: ""})
                                          )}>Close</Link>
                                    <div className="search-books-input-wrapper">
                                        <input type="text"
