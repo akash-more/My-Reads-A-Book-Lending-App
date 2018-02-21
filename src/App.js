@@ -25,25 +25,30 @@ class BooksApp extends React.Component {
 
     updateQuery = (query) => {
         this.setState({query: query});
-        BooksAPI.search(query).then((searchResults) => {
-            //console.log(searchResults);
-            if (Array.isArray(searchResults) && searchResults.length > 0) {
-                searchResults.map((searchBook, index) => {
-                    let temp = this.state.books.filter((shelfBook) => {
-                        return shelfBook.id === searchBook.id;
+        console.log(query.length);
+        if (query.length === 0) {
+            this.setState({searchResults: ""});
+        }else{
+            BooksAPI.search(query).then((searchResults) => {
+                // console.log(searchResults);
+                if (Array.isArray(searchResults) && searchResults.length > 0) {
+                    searchResults.map((searchBook, index) => {
+                        let temp = this.state.books.filter((shelfBook) => {
+                            return shelfBook.id === searchBook.id;
+                        });
+                        // console.log(temp);
+                        if (Array.isArray(temp) && temp.length > 0) {
+                            searchResults[index].shelf = temp[0].shelf;
+                        }
+                        else {
+                            searchResults[index].shelf = "none";
+                        }
                     });
-                    //console.log(temp);
-                    if (Array.isArray(temp) && temp.length > 0) {
-                        searchResults[index].shelf = temp[0].shelf;
-                    }
-                    else {
-                        searchResults[index].shelf = "none";
-                    }
-                });
-                this.setState({searchResults});
-                this.displayAllBooks();
-            }
-        })
+                    this.setState({searchResults});
+                    this.displayAllBooks();
+                }
+            })
+        }
     };
 
     changeBookShelf = (book, shelf) => {
