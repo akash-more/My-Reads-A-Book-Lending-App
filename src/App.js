@@ -24,12 +24,14 @@ class BooksApp extends React.Component {
     };
 
     updateQuery = (query) => {
-        this.setState({query: query});
-        console.log(query.length);
+        this.setState({query: query.trimLeft()});
+
         if (query.length === 0) {
             this.setState({searchResults: ""});
-        }else{
-            BooksAPI.search(query).then((searchResults) => {
+        }
+        else {
+            this.setState({searchResults: ""});
+            BooksAPI.search(query.trimLeft()).then((searchResults) => {
                 // console.log(searchResults);
                 if (Array.isArray(searchResults) && searchResults.length > 0) {
                     searchResults.map((searchBook, index) => {
@@ -132,4 +134,4 @@ class BooksApp extends React.Component {
     }
 }
 
-export default BooksApp
+export default BooksApp;
