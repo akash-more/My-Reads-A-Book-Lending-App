@@ -15,7 +15,7 @@ class BooksApp extends React.Component {
 
     componentDidMount() {
         this.displayAllBooks();
-    }
+    };
 
     displayAllBooks() {
         BooksAPI.getAll().then((books) => {
