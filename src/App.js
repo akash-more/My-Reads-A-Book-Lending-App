@@ -45,6 +45,7 @@ class BooksApp extends React.Component {
                         else {
                             searchResults[index].shelf = "none";
                         }
+                        return temp;
                     });
                     this.setState({searchResults});
                     this.displayAllBooks();
