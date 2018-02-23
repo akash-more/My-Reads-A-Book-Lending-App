@@ -23,12 +23,7 @@ const Book = (props) => {
             </div>
             <div className="book-title">{props.book.title}</div>
             <div className="book-authors">
-
-                {auth.map((author, index) => (
-                    <span key={index}>
-                            {author} <br/>
-                        </span>
-                ))}
+                {Array.isArray(auth)?auth.join(', '):''}
             </div>
         </div>
     );
