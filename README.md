@@ -1,5 +1,5 @@
 # MyReads Project
---> Introduction about the App:
+## Introduction about the App:
 ========================================================================================================================
 - Through this project, a user can create their own personal library.
 
@@ -7,18 +7,18 @@
 
 - These books can be organized in different Shelves.
 
---> Functionality of the App:
+## Functionality of the App:
 ========================================================================================================================
 - The functionality is implemented using "Book" and "Shelf" components in this project.
-![Alt Text](https://classroom.udacity.com/nanodegrees/nd019/parts/331aa737-9e87-42e2-8348-f97d51424b1a/modules/1c3110e6-46f7-4929-8cf4-8332afbbaadf/lessons/5d31386c-8c1c-4f32-974d-6bf3c1062cba/concepts/e7df4589-29d8-4d49-b760-a1db72d6cbdb#)
+![Screenshot](https://d17h27t6h515a5.cloudfront.net/topher/2017/May/590c0f12_react-project1-a/react-project1-a.png)
 
 - The API server and client library provided by Udacity have been used to persist information as the user interacts with the application.
 
 - Each Book in a shelf has a drop-down that can be used to move the books to different shelves.
-![Alt Text](https://classroom.udacity.com/nanodegrees/nd019/parts/331aa737-9e87-42e2-8348-f97d51424b1a/modules/1c3110e6-46f7-4929-8cf4-8332afbbaadf/lessons/5d31386c-8c1c-4f32-974d-6bf3c1062cba/concepts/e7df4589-29d8-4d49-b760-a1db72d6cbdb#)
+![Screenshot](https://d17h27t6h515a5.cloudfront.net/topher/2017/May/590c0f26_react-project1-b/react-project1-b.png)
 
 - New books can be searched by clicking on the "+" button on the main page of the application.
-![Alt Text](https://classroom.udacity.com/nanodegrees/nd019/parts/331aa737-9e87-42e2-8348-f97d51424b1a/modules/1c3110e6-46f7-4929-8cf4-8332afbbaadf/lessons/5d31386c-8c1c-4f32-974d-6bf3c1062cba/concepts/e7df4589-29d8-4d49-b760-a1db72d6cbdb#)
+![Screenshot](https://d17h27t6h515a5.cloudfront.net/topher/2017/December/5a3c22b9_screen-shot-2017-12-21-at-1.06.59-pm/screen-shot-2017-12-21-at-1.06.59-pm.png)
 
 - On clicking the "+" button, the user is redirected to a new page and the URL is changed from "/" to "/search".
 
@@ -33,4 +33,10 @@
 - Functionality to move a book between various shelves has been implemented on both the main and the search page.
 
 - It is also ensured that a book on a bookshelf, has the same state on both the main application page and the search page.
-![Alt Text](https://d17h27t6h515a5.cloudfront.net/topher/2017/July/595d48a9_correct-use-of-state/correct-use-of-state.gif)
+![Screenshot](https://d17h27t6h515a5.cloudfront.net/topher/2017/July/595d48a9_correct-use-of-state/correct-use-of-state.gif)
+
+## Installation and Launching the App:
+========================================================================================================================
+- Use the command "npm install" to install all the node packages that are required for the application.
+- Once all the packages are downloaded, use "npm start" to launch the application.
+- Once the application is launched, we can see that the application is up and running on localhost, port 3000 and can be accessed using the URL - http://localhost:3000/ with the title as "My Reads".
